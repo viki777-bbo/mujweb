@@ -1,16 +1,13 @@
 :root {
   /* Barvy */
-  --primary-color: #61cf5a;        /* Hlavní zelená
+  --primary-color: #61cf5a;        /* Hlavní zelená */
   --dark-text: #1F2937;            /* Tmavý text */
   --light-bg: #F9FAFB;             /* Světlé pozadí */
   --white: #FFFFFF;                /* Bílá */
   
   /* Fonty */
-:root {
   --font-main: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
   --font-size-base: 16px;
-}
-
   
   /* Rozestupy */
   --spacing-xs: 8px;
@@ -19,6 +16,7 @@
   --spacing-lg: 32px;
   --spacing-xl: 48px;
 }
+
 /* Reset a základy */
 * {
   margin: 0;
@@ -61,7 +59,6 @@ body {
   font-weight: 700;
   color: var(--dark-text);
   text-decoration: none;
-  /* Tvůj nápad: Přidej vlastní barvu, font-style nebo i ikonu */
 }
 
 /* Menu */
@@ -82,7 +79,7 @@ body {
   color: var(--primary-color);
 }
 
-/* Aktivní link - modřát dolní čára */
+/* Aktivní link - zelená dolní čára */
 .nav-link.active {
   color: var(--primary-color);
 }
@@ -96,12 +93,14 @@ body {
   height: 2px;
   background-color: var(--primary-color);
 }
+
+/* Hero sekce */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding: var(--spacing-xl) 0;
-  background-color: var(--light-bg);
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
 }
 
 .hero-content {
@@ -112,8 +111,12 @@ body {
 }
 
 /* Text sekce */
+.hero-text {
+  animation: slideInLeft 0.8s ease;
+}
+
 .hero-text h1 {
-  font-size: 56px;          /* Tvůj nápad: Změň velikost */
+  font-size: 56px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--spacing-lg);
@@ -121,12 +124,12 @@ body {
 }
 
 .hero-text h1 .highlight {
-  color: var(--primary-color);  /* Modrá barva */
+  color: var(--primary-color);
 }
 
 .hero-text p {
   font-size: 18px;
-  color: #6B7280;           /* Tmavě šedá */
+  color: #6B7280;
   margin-bottom: var(--spacing-lg);
   max-width: 400px;
 }
@@ -150,7 +153,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 16px rgba(97, 207, 90, 0.3);
 }
 
 /* Fotka - SVG */
@@ -158,6 +161,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: slideInRight 0.8s ease;
 }
 
 .image-mask {
@@ -165,55 +169,19 @@ body {
   max-width: 400px;
   height: auto;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+  transition: filter 0.3s ease;
+}
+
+.image-mask:hover {
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3)) brightness(1.1);
 }
 
 .image-mask image {
   width: 100%;
   height: 100%;
 }
-/* Tablet a menší */
-@media (max-width: 768px) {
-  .hero-content {
-    grid-template-columns: 1fr;  /* Jeden sloupec místo dvou */
-    gap: var(--spacing-md);
-  }
-  
-  .hero-text h1 {
-    font-size: 40px;  /* Menší nadpis */
-  }
-  
-  .nav {
-    gap: var(--spacing-md);  /* Menší mezery v menu */
-  }
-  
-  .hero-text p {
-    font-size: 16px;
-  }
-}
 
-/* Mobil */
-@media (max-width: 480px) {
-  .logo {
-    font-size: 20px;
-  }
-  
-  .hero-text h1 {
-    font-size: 32px;
-  }
-  
-  .nav {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-}
-.hero-text {
-  animation: slideInLeft 0.8s ease;
-}
-
-.hero-image {
-  animation: slideInRight 0.8s ease;
-}
-
+/* Hero animace */
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -235,9 +203,338 @@ body {
     transform: translateX(0);
   }
 }
-.hero {
+
+/* ===== SEKCE O MĚ ===== */
+.about {
+  padding: 80px 0;
   background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
 }
-.image-mask:hover {
-  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3)) brightness(1.1);
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.about-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 35px 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.about-card:hover .about-icon {
+  transform: scale(1.05) rotate(-3deg);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.about-icon svg {
+  width: 38px;
+  height: 38px;
+  fill: #ffffff;
+}
+
+.about-card h3 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  color: #5a6c7d;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ===== SEKCE DOVEDNOSTI - ZÁKLAD ===== */
+
+.skills {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+}
+
+/* Nadpisy sekcí */
+.section-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--dark-text);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  
+  /* Gradient text */
+  background: linear-gradient(135deg, var(--primary-color), var(--dark-text));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #6B7280;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-weight: 500;
+}
+
+/* Grid layout pro desktop */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 sloupce vedle sebe */
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Kartička */
+.skill-card {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 0;  /* Začneme neviditelné - pro animace */
+}
+
+/* Hover efekt na kartičku */
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Ikona */
+.skill-icon {
+  font-size: 48px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--spacing-md);
+  
+  /* Flexbox pro centrování emoji */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: #EEF2FF;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Hover efekt na ikonu */
+.skill-card:hover .skill-icon {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Texty */
+.skill-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: var(--spacing-sm);
+  transition: color 0.3s ease;
+}
+
+.skill-card:hover .skill-title {
+  color: var(--primary-color);
+}
+
+.skill-description {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+/* ===== ANIMACE PRO PRVKY ===== */
+
+/* Definice animací - Používáme je univerzálně pro libovolný prvek */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* CSS třídy pro animace - připravíme si je pro JavaScript */
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+/* Stagger efekt - zpoždění mezi prvky */
+.animate-stagger-1 { animation-delay: 0.1s; }
+.animate-stagger-2 { animation-delay: 0.2s; }
+.animate-stagger-3 { animation-delay: 0.3s; }
+.animate-stagger-4 { animation-delay: 0.4s; }
+.animate-stagger-5 { animation-delay: 0.5s; }
+.animate-stagger-6 { animation-delay: 0.6s; }
+
+/* Pro skill-cardy - jakmile se přidá class, stane se viditelné */
+.skill-card.animate-fade-in-up {
+  opacity: 1;
+}
+
+/* ===== RESPONSIVE DESIGN (Media Queries) ===== */
+
+/* Tablet (menší než 1024px) -> 2 sloupce */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .section-title {
+    font-size: 40px;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet a menší */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;  /* Jeden sloupec místo dvou */
+    gap: var(--spacing-md);
+  }
+  
+  .hero-text h1 {
+    font-size: 40px;  /* Menší nadpis */
+  }
+  
+  .nav {
+    gap: var(--spacing-md);  /* Menší mezery v menu */
+  }
+  
+  .hero-text p {
+    font-size: 16px;
+  }
+  
+  /* Skills sekce na mobilu */
+  .skills-grid {
+    grid-template-columns: 1fr; /* Pod sebou */
+    gap: var(--spacing-md);
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 16px;
+  }
+  
+  .skill-card {
+    padding: var(--spacing-md);
+  }
+  
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+  }
+}
+
+/* Mobil */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+  
+  .hero-text h1 {
+    font-size: 32px;
+  }
+  
+  .nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
 }
