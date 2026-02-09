@@ -121,6 +121,155 @@
     </div>
   </section>
 
+  <!-- Sekce Portfolio -->
+  <section class="portfolio" id="works">
+    <div class="container">
+      <h2 class="section-title">Moje Projekty</h2>
+      <p class="section-subtitle">Ukázka mých nejlepších prací</p>
+      
+      <!-- Filtrovací tlačítka -->
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">Vše</button>
+        <button class="filter-btn" data-filter="web">Web Design</button>
+        <button class="filter-btn" data-filter="app">Aplikace</button>
+        <button class="filter-btn" data-filter="ui">UI/UX</button>
+      </div>
+      
+      <p class="portfolio-count">Zobrazeno <span id="project-count">6</span> projektů</p>
+      <!-- Grid s projekty -->
+      <div class="portfolio-grid">
+        
+        <!-- Projekt 1 -->
+        <div class="portfolio-card" data-category="web">
+          <div class="portfolio-image">
+            <img src="https://plus.unsplash.com/premium_photo-1661510884617-232a2ba30dc2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="E-commerce Web" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">E-commerce Web</h3>
+              <p class="portfolio-description">Moderní online obchod s responzivním designem</p>
+              <div class="portfolio-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  Demo
+                </a>
+                <a href="#" class="portfolio-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Projekt 2 -->
+        <div class="portfolio-card" data-category="app">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1530563885674-66db50a1af19?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Weather App" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Weather App</h3>
+              <p class="portfolio-description">Aplikace pro předpověď počasí s API integrací</p>
+              <div class="portfolio-tags">
+                <span class="tag">React</span>
+                <span class="tag">API</span>
+                <span class="tag">Tailwind</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link">Demo</a>
+                <a href="#" class="portfolio-link">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Projekt 3 -->
+        <div class="portfolio-card" data-category="ui">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dashboard UI" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Dashboard UI</h3>
+              <p class="portfolio-description">Adminský panel s grafy a statistikami</p>
+              <div class="portfolio-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">UI Design</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link">Behance</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Projekt 4 -->
+        <div class="portfolio-card" data-category="web">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Restaurant Web" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Restaurant Website</h3>
+              <p class="portfolio-description">Elegantní webová prezentace restaurace</p>
+              <div class="portfolio-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">SCSS</span>
+                <span class="tag">jQuery</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link">Demo</a>
+                <a href="#" class="portfolio-link">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Projekt 5 -->
+        <div class="portfolio-card" data-category="app">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1598791318878-10e76d178023?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Todo App" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Todo List App</h3>
+              <p class="portfolio-description">Jednoduchá aplikace pro správu úkolů</p>
+              <div class="portfolio-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">LocalStorage</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link">Demo</a>
+                <a href="#" class="portfolio-link">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Projekt 6 -->
+        <div class="portfolio-card" data-category="ui">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mobile App Design" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Mobile App Design</h3>
+              <p class="portfolio-description">Návrh mobilní aplikace pro fitness</p>
+              <div class="portfolio-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">UI/UX</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link">Dribbble</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
   <script src="script.js"></script>
 </body>
 </html>

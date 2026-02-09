@@ -24,7 +24,6 @@ window.addEventListener('scroll', () => {
     if (section) {
       const rect = section.getBoundingClientRect();
       
-      // Pokud je sekce viditelná (top < 100px od okna)
       if (rect.top <= 100 && rect.bottom >= 100) {
         links.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
@@ -33,42 +32,119 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// ===== INTERSECTION OBSERVER - ANIMACE PRVKŮ KDYŽ JSOU VIDITELNÉ =====
-
+// ===== INTERSECTION OBSERVER - ANIMACE PRVKŮ =====
 function initAnimations() {
-  // Vyber všechny prvky s atributem data-animate
   const observerElements = document.querySelectorAll('[data-animate]');
   
-  // Konfigurační objekt pro observer
   const observerOptions = {
-    threshold: 0.2,        // Aktivuj když je 20% prvku viditelné
-    rootMargin: '0px 0px -50px 0px'  // Počkat až na dolní část prvku
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
   };
   
-  // Vytvoř Intersection Observer
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Prvek je viditelný - přidej animační třídu
         const animationType = entry.target.getAttribute('data-animate');
         entry.target.classList.add(animationType);
         
-        // Pokud je .skill-card, přidej i stagger efekt
         if (entry.target.classList.contains('skill-card')) {
           const allCards = Array.from(document.querySelectorAll('.skill-card'));
           const staggerIndex = allCards.indexOf(entry.target);
           entry.target.classList.add(`animate-stagger-${(staggerIndex % 6) + 1}`);
         }
         
-        // Když je prvek animován, přestane se sledovat
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
   
-  // Sleduj všechny prvky
-  observerElements.forEach(element => observer.observe(element));
+  observerElements.forEach(el => observer.observe(el));
 }
 
-// Spusť animace když je dokument načten
 document.addEventListener('DOMContentLoaded', initAnimations);
+
+// ===== VYLEPŠENÝ PORTFOLIO FILTER (STAGGER ANIMACE) =====
+function initPortfolioFilter() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      const filterValue = button.getAttribute('data-filter');
+      let visibleIndex = 0;
+
+      portfolioCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const shouldShow = filterValue === 'all' || cardCategory === filterValue;
+        
+        if (shouldShow) {
+          card.style.display = 'block';
+          
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, visibleIndex * 100);
+          
+          visibleIndex++;
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.8)';
+          
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initPortfolioFilter);
+// ===== VYLEPŠENÝ PORTFOLIO FILTER (STAGGER ANIMACE) =====
+function initPortfolioFilter() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      const filterValue = button.getAttribute('data-filter');
+      let visibleIndex = 0;
+
+      portfolioCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const shouldShow = filterValue === 'all' || cardCategory === filterValue;
+        
+        if (shouldShow) {
+          card.style.display = 'block';
+          
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, visibleIndex * 100);
+          
+          visibleIndex++;
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.8)';
+          
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+      const visibleCards = document.querySelectorAll(
+        '.portfolio-card[style*="display: block"], .portfolio-card:not([style*="display: none"])'
+      );
+      document.getElementById('project-count').textContent = visibleCards.length;
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initPortfolioFilter);
+
